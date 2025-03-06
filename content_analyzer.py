@@ -94,12 +94,12 @@ class ContentAnalyzer:
                                         json=payload,
                                         timeout=aiohttp.ClientTimeout(total=30)) as response:
                     if response.status != 200:
-                        print(f"Ollama request failed with status: {response.status}")
+                        self.logger.error(f"Ollama request failed with status: {response.status}")
                         return None
                     data = await response.json()
                     return data.get("response", "")
         except Exception as e:
-            print(f"Ollama call failed: {str(e)}")
+            self.logger.error(f"Ollama call failed: {str(e)}")
             return None
 
     def get_analysis_history(self) -> dict:

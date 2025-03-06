@@ -4,6 +4,10 @@ import pandas as pd
 
 class DataSaver:
     def __init__(self, base_filename: str = "articles", batch_size: int = 100, format: str = "parquet"):
+        supported_formats = ["parquet", "csv"]
+        if format.lower() not in supported_formats:
+            raise ValueError(f"Unsupported format: {format}. Use one of {supported_formats}")
+
         self.base_filename = base_filename
         self.batch_size = batch_size
         self.format = format.lower()
@@ -24,8 +28,9 @@ class DataSaver:
 
     def save(self) -> None:
         if not self.records:
-            print("No data to save")
+            self.logger.info("No data to save")
             return
+
         filename = self._generate_filename()
         try:
             df = pd.DataFrame(self.records)

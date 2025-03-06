@@ -65,17 +65,18 @@ class BehaviorSimulator:
 
     async def _click_element(self, page: Page, context: Dict) -> None:
         """点击随机可交互元素"""
-        elements = await page.query_selector_all("a[href], button, [role='button']")
-        if elements:
-            target = random.choice(elements)
-            try:
+        try:
+            elements = await page.query_selector_all("a[href], button, [role='button']")
+            if elements:
+                target = random.choice(elements)
                 await target.click(timeout=5000)
                 self.logger.debug("Clicked an interactive element")
-            except Exception as e:
-                self.logger.warning(f"Click failed: {str(e)}")
-        else:
-            await page.click("body")  # 回退到点击页面主体
-            self.logger.debug("No interactive elements found, clicked body")
+            else:
+                self.logger.debug("No interactive elements found, clicked body")
+                await page.click("body")
+
+        except Exception as e:
+            self.logger.warning(f"Click failed: {str(e)}")
 
     async def _simulate_reading(self, page: Page, context: Dict) -> None:
         """模拟阅读时间"""
