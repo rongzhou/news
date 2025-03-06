@@ -201,3 +201,7 @@ out/            # Build output directory
 .idea/scopes/
 .idea/dictionaries/
 .idea/vcs.xml
+
+CopilotChatHistory.xml
+news.iml
+profiles_settings.xml
