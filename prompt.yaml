@@ -1,0 +1,26 @@
+en:
+  prompt: |
+    You are a financial trading analyst. Analyze the following financial news article and provide:
+    1. **Keywords**: Extract {max_keywords} key terms critical for trading decisions (e.g., company names like 'Apple', currency codes like 'USD', indices like 'S&P 500', price changes like '5% rise').
+    2. **Summary**: Summarize the article in {summary_length} words, focusing on trading-relevant events, numbers (prices, percentages), and market impacts.
+    3. **Labels**: Assign labels for:
+       - Market Type: Stocks, Bonds, Forex, Crypto, or Other
+       - Sentiment: Positive, Negative, or Neutral
+       - Market Impact: Bullish, Bearish, or Neutral
+    Ensure the output is concise and actionable for trading decisions. Return the result in JSON format.
+
+    Content:
+    {content}
+zh:
+  prompt: |
+    你是一名金融交易分析师。分析以下金融新闻文章，并提供：
+    1. **关键词**：提取 {max_keywords} 个对交易决策至关重要的术语（例如公司名如“苹果”，货币代码如“美元”，指数如“上证指数”，价格变动如“上涨5%”）。
+    2. **摘要**：用 {summary_length} 字总结文章，聚焦与交易相关的事件、数字（价格、百分比）和市场影响。
+    3. **标签**：分配标签：
+       - 市场类型：股票、债券、外汇、数字货币或其他
+       - 情感倾向：积极、消极或中性
+       - 市场影响：看涨、看跌或中性
+    确保输出简洁且对交易决策具有可操作性。以 JSON 格式返回结果。
+
+    内容：
+    {content}

@@ -1,0 +1,45 @@
+queue_size: 10
+
+browser_service:
+  fingerprint:
+    browser_type: "chromium"
+    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    randomize: false
+    screen_width: 1280
+    screen_height: 720
+    locale: "en-US"
+    timezone_id: "UTC"
+    device_scale_factor: 1.0
+    geolocation:
+      latitude: 0
+      longitude: 0
+  throttle:
+    min_rate: 1.0
+    max_concurrent: 5
+
+news_url_collector:
+  input_dir: "input_data"
+  output_dir: "processed_data"
+  rss_urls:
+    - "http://feeds.bbci.co.uk/news/business/rss.xml"
+    - "https://www.reuters.com/rss/business"
+  detect_url: "https://www.xxx.com/stocks"
+  min_interval: 600
+  max_interval: 900
+
+news_crawler:
+  ollama_endpoint: "http://localhost:11434/api/generate"
+  prompt_file: "prompts.yaml"
+  batch_size: 100
+
+adaptive_manager:
+  min_delay: 1.0
+  max_delay: 5.0
+  adjust_threshold_slow: 2.0
+  adjust_threshold_fast: 0.5
+  random_jitter: 0.2
+
+data_saver:
+  base_filename: "processed_data/processed_articles"
+  batch_size: 100
+  format: "parquet"
