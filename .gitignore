@@ -169,3 +169,35 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, CLion, etc.)
+.idea/          # Project-level settings directory
+*.iml           # IntelliJ IDEA module files
+*.ipr           # IntelliJ IDEA project files
+*.iws           # IntelliJ IDEA workspace files
+
+# IDE runtime files
+out/            # Build output directory
+/.idea/**/workspace.xml  # Local workspace configuration
+/.idea/**/tasks.xml      # Local task settings
+/.idea/**/shelf/         # Local uncommitted changes
+/.idea/**/dataSources/   # Database connection info
+/.idea/**/dataSources.ids
+/.idea/**/httpRequests/
+
+# Other JetBrains cache and log files
+/.idea/**/index-layout.xml
+/.idea/**/libraries/
+/.idea/**/modules.xml
+/.idea/**/misc.xml
+/.idea/**/vcs.xml
+/.idea/**/workspace.xml
+/.idea/**/shelf/
+/.idea/httpRequests/
+/.idea/deployment.xml
+
+# JetBrains shared settings (optional)
+.idea/codeStyles/
+.idea/scopes/
+.idea/dictionaries/
+.idea/vcs.xml
